@@ -2,6 +2,7 @@ import os
 import urllib.request
 import ssl
 
+#LISTA DE PROXYS
 file = open("proxies.txt", "r").read()
 proxys = file.split("\n")
 
@@ -16,7 +17,7 @@ def test_proxy(proxy):
         response = opener.open(url, timeout=3)
         if response.getcode() == 200:
             print(f"Proxy {proxy} está funcionando corretamente")
-            os.system(f"echo {proxy} >> proxys_funcionando.txt")
+            #os.system(f"echo {proxy} >> proxys_funcionando.txt")
         else:
             print(f"Proxy {proxy} retornou uma resposta inválida")
     except urllib.error.URLError as e:
